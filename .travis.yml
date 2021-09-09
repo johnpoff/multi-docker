@@ -3,23 +3,23 @@ services:
   - docker
 
 before_install:
-  - docker build -t johnpoff/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t nerddaddy/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true johnpoff/react-test npm test -- --coverage
+  - docker run -e CI=true nerddaddy/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t johnpoff/multi-client ./client 
-  - docker build -t johnpoff/multi-nginx ./nginx
-  - docker build -t johnpoff/multi-server ./server
-  - docker build -t johnpoff/multi-worker ./worker
+  - docker build -t nerddaddy/multi-client ./client 
+  - docker build -t nerddaddy/multi-nginx ./nginx
+  - docker build -t nerddaddy/multi-server ./server
+  - docker build -t nerddaddy/multi-worker ./worker
 # Log in to the Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # Take these images and push to Docker hub
-  - docker push johnpoff/multi-client:latest
-  - docker push johnpoff/multi-nginx:latest
-  - docker push johnpoff/multi-server:latest
-  - docker push johnpoff/multi-worker:latest
+  - docker push nerddaddy/multi-client
+  - docker push nerddaddy/multi-nginx
+  - docker push nerddaddy/multi-server
+  - docker push nerddaddy/multi-worker
 #
 
 
