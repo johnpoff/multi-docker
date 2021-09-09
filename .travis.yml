@@ -12,7 +12,7 @@ after_success:
   - docker build -t johnpoff/multi-client ./client 
   - docker build -t johnpoff/multi-nginx ./nginx
   - docker build -t johnpoff/multi-server ./server
-  - docker built -t johnpoff/multi-worker ./worker
+  - docker build -t johnpoff/multi-worker ./worker
 # Log in to the Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # Take these images and push to Docker hub
