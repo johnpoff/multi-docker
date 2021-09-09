@@ -16,10 +16,10 @@ after_success:
 # Log in to the Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # Take these images and push to Docker hub
-  - docker push nerddaddy/multi-client
-  - docker push nerddaddy/multi-nginx
-  - docker push nerddaddy/multi-server
-  - docker push nerddaddy/multi-worker
+  - docker push johnpoff/multi-client:latest
+  - docker push johnpoff/multi-nginx:latest
+  - docker push johnpoff/multi-server:latest
+  - docker push johnpoff/multi-worker:latest
 #
 
 
